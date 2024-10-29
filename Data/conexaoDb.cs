@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoAgenda.Data
 {
-    static internal class conexaoDb
+    static internal class ConexaoDb
     {
         static public MySqlConnection CriarConexao()
         {

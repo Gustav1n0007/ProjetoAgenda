@@ -46,25 +46,27 @@
             // 
             lblNome.AutoSize = true;
             lblNome.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNome.Location = new Point(40, 35);
+            lblNome.Location = new Point(35, 26);
             lblNome.Name = "lblNome";
-            lblNome.Size = new Size(77, 25);
+            lblNome.Size = new Size(59, 18);
             lblNome.TabIndex = 1;
             lblNome.Text = "Nome";
             // 
             // tbxNome
             // 
-            tbxNome.Location = new Point(40, 63);
+            tbxNome.Location = new Point(35, 47);
+            tbxNome.Margin = new Padding(3, 2, 3, 2);
             tbxNome.Name = "tbxNome";
-            tbxNome.Size = new Size(365, 27);
+            tbxNome.Size = new Size(320, 23);
             tbxNome.TabIndex = 2;
             tbxNome.TextChanged += tbxNome_TextChanged;
             // 
             // tbxUsuario
             // 
-            tbxUsuario.Location = new Point(40, 137);
+            tbxUsuario.Location = new Point(35, 103);
+            tbxUsuario.Margin = new Padding(3, 2, 3, 2);
             tbxUsuario.Name = "tbxUsuario";
-            tbxUsuario.Size = new Size(365, 27);
+            tbxUsuario.Size = new Size(320, 23);
             tbxUsuario.TabIndex = 4;
             tbxUsuario.TextChanged += tbxUsuario_TextChanged;
             // 
@@ -72,17 +74,18 @@
             // 
             lblUsuario.AutoSize = true;
             lblUsuario.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblUsuario.Location = new Point(40, 109);
+            lblUsuario.Location = new Point(35, 82);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(98, 25);
+            lblUsuario.Size = new Size(75, 18);
             lblUsuario.TabIndex = 3;
             lblUsuario.Text = "Usuário";
             // 
             // tbxTelefone
             // 
-            tbxTelefone.Location = new Point(40, 214);
+            tbxTelefone.Location = new Point(35, 160);
+            tbxTelefone.Margin = new Padding(3, 2, 3, 2);
             tbxTelefone.Name = "tbxTelefone";
-            tbxTelefone.Size = new Size(365, 27);
+            tbxTelefone.Size = new Size(320, 23);
             tbxTelefone.TabIndex = 6;
             tbxTelefone.TextChanged += tbxTelefone_TextChanged;
             // 
@@ -90,17 +93,18 @@
             // 
             lblTelefone.AutoSize = true;
             lblTelefone.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTelefone.Location = new Point(40, 186);
+            lblTelefone.Location = new Point(35, 140);
             lblTelefone.Name = "lblTelefone";
-            lblTelefone.Size = new Size(108, 25);
+            lblTelefone.Size = new Size(86, 18);
             lblTelefone.TabIndex = 5;
             lblTelefone.Text = "Telefone";
             // 
             // tbxConfirm
             // 
-            tbxConfirm.Location = new Point(40, 363);
+            tbxConfirm.Location = new Point(35, 272);
+            tbxConfirm.Margin = new Padding(3, 2, 3, 2);
             tbxConfirm.Name = "tbxConfirm";
-            tbxConfirm.Size = new Size(365, 27);
+            tbxConfirm.Size = new Size(320, 23);
             tbxConfirm.TabIndex = 8;
             tbxConfirm.TextChanged += tbxConfirm_TextChanged;
             // 
@@ -108,17 +112,18 @@
             // 
             lblConfirm.AutoSize = true;
             lblConfirm.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblConfirm.Location = new Point(40, 335);
+            lblConfirm.Location = new Point(35, 251);
             lblConfirm.Name = "lblConfirm";
-            lblConfirm.Size = new Size(206, 25);
+            lblConfirm.Size = new Size(162, 18);
             lblConfirm.TabIndex = 7;
             lblConfirm.Text = "Confirme a senha";
             // 
             // tbxSenha
             // 
-            tbxSenha.Location = new Point(40, 287);
+            tbxSenha.Location = new Point(35, 215);
+            tbxSenha.Margin = new Padding(3, 2, 3, 2);
             tbxSenha.Name = "tbxSenha";
-            tbxSenha.Size = new Size(365, 27);
+            tbxSenha.Size = new Size(320, 23);
             tbxSenha.TabIndex = 10;
             tbxSenha.TextChanged += tbxSenha_TextChanged;
             // 
@@ -126,18 +131,18 @@
             // 
             lblSenha.AutoSize = true;
             lblSenha.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSenha.Location = new Point(40, 259);
+            lblSenha.Location = new Point(35, 194);
             lblSenha.Name = "lblSenha";
-            lblSenha.Size = new Size(80, 25);
+            lblSenha.Size = new Size(63, 18);
             lblSenha.TabIndex = 9;
             lblSenha.Text = "Senha";
             // 
             // btnCadastrar
             // 
-            btnCadastrar.Enabled = false;
-            btnCadastrar.Location = new Point(40, 429);
+            btnCadastrar.Location = new Point(35, 322);
+            btnCadastrar.Margin = new Padding(3, 2, 3, 2);
             btnCadastrar.Name = "btnCadastrar";
-            btnCadastrar.Size = new Size(168, 59);
+            btnCadastrar.Size = new Size(147, 44);
             btnCadastrar.TabIndex = 11;
             btnCadastrar.Text = "Cadastrar";
             btnCadastrar.UseVisualStyleBackColor = true;
@@ -145,9 +150,10 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(237, 429);
+            btnCancelar.Location = new Point(207, 322);
+            btnCancelar.Margin = new Padding(3, 2, 3, 2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(168, 59);
+            btnCancelar.Size = new Size(147, 44);
             btnCancelar.TabIndex = 12;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -155,10 +161,10 @@
             // 
             // frmCadastro
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSteelBlue;
-            ClientSize = new Size(480, 550);
+            ClientSize = new Size(420, 412);
             Controls.Add(btnCancelar);
             Controls.Add(btnCadastrar);
             Controls.Add(tbxSenha);
@@ -171,6 +177,7 @@
             Controls.Add(lblUsuario);
             Controls.Add(tbxNome);
             Controls.Add(lblNome);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "frmCadastro";
             Text = "frmCadastro";
             ResumeLayout(false);

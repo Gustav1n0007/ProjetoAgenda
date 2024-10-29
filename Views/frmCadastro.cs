@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using ProjetoAgenda.Controller;
 using ProjetoAgenda.Data;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,10 @@ namespace ProjetoAgenda
         private void habilitarCadastrar()
         {
 
-            if(tbxNome.Text != "" && tbxUsuario.Text != "" && tbxTelefone.Text != "" && tbxSenha.Text.Length > 8 && tbxSenha.Text == tbxConfirm.Text);
+            if (tbxNome.Text != "" && tbxUsuario.Text != "" && tbxTelefone.Text != "" && tbxSenha.Text.Length > 8 && tbxSenha.Text == tbxConfirm.Text) 
+            {
+                btnCadastrar.Enabled = true;    
+            };
 
         }
 
@@ -56,29 +60,16 @@ namespace ProjetoAgenda
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            MySqlConnection conexao = conexaoDb.CriarConexao();
+            // dados do usuario em variaveis
+            string nome = tbxNome.Text;
+            string usuario = tbxUsuario.Text;
+            string telefone = tbxTelefone.Text;
+            string senha = tbxSenha.Text;
 
-            // abrindo conexao
-            conexao.Open();
-
-            // criando o comando pra inserir as informacoes
-            string sql = $"INSERT INTO tbUsuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha)";
-
-            // Criando o comando
-            MySqlCommand comando = new MySqlCommand(sql, conexao);
-
-            comando.Parameters.AddWithValue("@nome", tbxNome.Text);
-            comando.Parameters.AddWithValue("@usuario", tbxUsuario.Text);
-            comando.Parameters.AddWithValue("@telefone", tbxTelefone.Text);
-            comando.Parameters.AddWithValue("@senha", tbxSenha.Text);
-
-            // Executando o comando no banco de dados
-            comando.ExecuteNonQuery();
-
-            // fechando conexao
-            conexao.Close();
-
-            MessageBox.Show("Cadastrado com sucesso!");
+            // chamando a classe para adicionar ao banco de dados
+            UserController addUser = new UserController();
+            // utilizando a classe
+            addUser.AddUser(nome, usuario, telefone, senha);
             this.Close();
         }
     }
