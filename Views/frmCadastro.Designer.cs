@@ -104,6 +104,7 @@
             tbxConfirm.Location = new Point(35, 272);
             tbxConfirm.Margin = new Padding(3, 2, 3, 2);
             tbxConfirm.Name = "tbxConfirm";
+            tbxConfirm.PasswordChar = '*';
             tbxConfirm.Size = new Size(320, 23);
             tbxConfirm.TabIndex = 8;
             tbxConfirm.TextChanged += tbxConfirm_TextChanged;
@@ -123,6 +124,7 @@
             tbxSenha.Location = new Point(35, 215);
             tbxSenha.Margin = new Padding(3, 2, 3, 2);
             tbxSenha.Name = "tbxSenha";
+            tbxSenha.PasswordChar = '*';
             tbxSenha.Size = new Size(320, 23);
             tbxSenha.TabIndex = 10;
             tbxSenha.TextChanged += tbxSenha_TextChanged;
