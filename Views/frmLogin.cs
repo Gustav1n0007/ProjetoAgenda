@@ -49,7 +49,7 @@ namespace ProjetoAgenda
             UserController logarUser = new UserController();
             // utilizando a classe
             logarUser.logarUser(usuario, senha);
-            this.Close();
+            
         }
     }
 }

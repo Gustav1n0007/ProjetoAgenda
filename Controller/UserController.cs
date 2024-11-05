@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoAgenda.Data;
+using ProjetoAgenda.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,6 +81,8 @@ namespace ProjetoAgenda.Controller
                 {
                     conexao.Close();
                     MessageBox.Show("login efetuado");
+                    frmPrincipal frmTeste = new frmPrincipal();
+                    frmTeste.ShowDialog();
                     return true;
                 }
                 else
