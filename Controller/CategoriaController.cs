@@ -3,6 +3,7 @@ using ProjetoAgenda.Data;
 using ProjetoAgenda.Views;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,12 @@ namespace ProjetoAgenda.Controller
     {
         public bool addCategoria(string categoria)
         {
+
+            MySqlConnection conexao = null; 
+
             try
             {
-                MySqlConnection conexao = ConexaoDb.CriarConexao();
-
+                conexao = ConexaoDb.CriarConexao();
                 string sql = "INSERT INTO tbCategoria (categoria) VALUES (@categoria);";
 
                 conexao.Open();
@@ -26,47 +29,57 @@ namespace ProjetoAgenda.Controller
                 comando.Parameters.AddWithValue("@categoria", categoria);
 
                 int linhasafetadas = comando.ExecuteNonQuery();
-
+                conexao.Close();
                 if (linhasafetadas > 0)
                 {
-                    MessageBox.Show("Categoria adicionada com sucesso");
                     return true;
                 }
                 else
                 {
-                    MessageBox.Show("Não");
                     return false;
                 }
             }
+            
             catch (Exception erro)
             {
                 MessageBox.Show(erro.Message);
                 return false;
             }
+            
+            finally
+            {
+                conexao.Close();
+            }
         }
-        public string viewCategoria()
+
+        public DataTable getCategorias()
         {
-            string none = "";
-            MySqlConnection conexao = ConexaoDb.CriarConexao();
+            MySqlConnection conexao = null;
 
-            string sql = "select binary categoria from TbCategoria;";
-
-            conexao.Open();
-
-            MySqlCommand comando = new MySqlCommand(sql, conexao);
-
-            MySqlDataReader reader = comando.ExecuteReader();
-            if (reader.Read())
+            try
             {
-                string categoria = reader["categoria"].ToString();
-                return categoria;
-                
+                conexao = ConexaoDb.CriarConexao();
+                string sql = "select id_categoria AS 'Código' ,categoria AS 'Categoria' from tbCategoria;";
+
+                conexao.Open();
+
+                MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao);
+
+                DataTable tabela = new DataTable();
+
+                adaptador.Fill(tabela);
+
+                return tabela;
             }
-            else
+            catch (Exception erro)
             {
-                return none;
+                MessageBox.Show($"Erro: " + erro.Message);
+                return null;
+            }
+            finally
+            {
+                conexao.Close();
             }
         }
-
     }
 }

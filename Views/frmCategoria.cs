@@ -24,12 +24,25 @@ namespace ProjetoAgenda.Controller
             CategoriaController addCategoria = new CategoriaController();
             // utilizando a classe
             addCategoria.addCategoria(categoria);
-            CategoriaController VerCategorias = new CategoriaController();
-            string oi = VerCategorias.viewCategoria();
-            listaCategorias.Items.Add(oi);
+
+            CategoriaController exibeCategorias = new CategoriaController();
+            DataTable datatable = exibeCategorias.getCategorias();
+            dgvCategoria.DataSource = datatable;
         }
 
         private void tmrAtualiza_Tick(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void frmCategoria_Load(object sender, EventArgs e)
+        {
+            CategoriaController exibeCategorias = new CategoriaController();
+            DataTable datatable = exibeCategorias.getCategorias();
+            dgvCategoria.DataSource = datatable;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             
         }

@@ -18,13 +18,18 @@ namespace ProjetoAgenda.Views
             InitializeComponent();
         }
 
-        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void novaCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmCategoria frmCategoria = new frmCategoria();
             frmCategoria.ShowDialog();
         }
 
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cadastrarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

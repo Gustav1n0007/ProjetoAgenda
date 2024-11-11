@@ -7,4 +7,8 @@ CREATE TABLE tbUsuario(
     usuario varchar(30) primary key,
     senha varchar(20) not null
     );
-    
+
+CREATE TABLE tbCategoria(
+    id_categoria int primary key auto_increment,
+    categoria varchar(50) not null
+    );0

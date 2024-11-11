@@ -33,8 +33,9 @@
             btnCadastrar = new Button();
             btnCancelar = new Button();
             label1 = new Label();
-            listaCategorias = new ListBox();
             tmrAtualiza = new System.Windows.Forms.Timer(components);
+            dgvCategoria = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvCategoria).BeginInit();
             SuspendLayout();
             // 
             // txtCategoria
@@ -65,6 +66,7 @@
             btnCancelar.TabIndex = 2;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // label1
             // 
@@ -76,31 +78,32 @@
             label1.TabIndex = 3;
             label1.Text = "Nome da categoria";
             // 
-            // listaCategorias
-            // 
-            listaCategorias.FormattingEnabled = true;
-            listaCategorias.ItemHeight = 15;
-            listaCategorias.Location = new Point(423, 12);
-            listaCategorias.Name = "listaCategorias";
-            listaCategorias.Size = new Size(140, 214);
-            listaCategorias.TabIndex = 4;
-            // 
             // tmrAtualiza
             // 
             tmrAtualiza.Tick += tmrAtualiza_Tick;
+            // 
+            // dgvCategoria
+            // 
+            dgvCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCategoria.Location = new Point(396, 12);
+            dgvCategoria.Name = "dgvCategoria";
+            dgvCategoria.Size = new Size(270, 213);
+            dgvCategoria.TabIndex = 4;
             // 
             // frmCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(880, 237);
-            Controls.Add(listaCategorias);
+            ClientSize = new Size(686, 237);
+            Controls.Add(dgvCategoria);
             Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnCadastrar);
             Controls.Add(txtCategoria);
             Name = "frmCategoria";
             Text = "frmCadastro";
+            Load += frmCategoria_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvCategoria).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -111,7 +114,7 @@
         private Button btnCadastrar;
         private Button btnCancelar;
         private Label label1;
-        private ListBox listaCategorias;
         private System.Windows.Forms.Timer tmrAtualiza;
+        private DataGridView dgvCategoria;
     }
 }
