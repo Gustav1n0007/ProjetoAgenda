@@ -81,5 +81,16 @@ namespace ProjetoAgenda.Controller
                 conexao.Close();
             }
         }
+
+        public DataTable getusers()
+        {
+            MySqlConnection conexao = ConexaoDb.CriarConexao();
+            string sql = "select usuario, nome as Nome, telefone from tbUsuario;";
+            conexao.Open();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter (sql, conexao);
+            DataTable tabela = new DataTable();
+            adaptador.Fill(tabela);
+            return tabela;
+        }
     }
 }

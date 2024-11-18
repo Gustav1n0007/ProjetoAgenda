@@ -22,17 +22,20 @@ namespace ProjetoAgenda.Controller
                 conexao.Open();
 
                 // Cria o comando para inserir na tabela do sql
-                string sql = "INSERT INTO tbUsuario (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);";
+                string sql = @$"CREATE USER '{usuario}'@'%' identified by '{senha}';
+                                INSERT INTO tbUsuario (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);
+                                grant select, insert, update, delete on dbagenda.* to '{usuario}'@'%';";
 
                 // comando para colocar o codigo dentro do sql
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
                 // adiciona os valores certos a tabela
+                
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@usuario", usuario);
                 comando.Parameters.AddWithValue("@telefone", telefone);
                 comando.Parameters.AddWithValue("@senha", senha);
-
+                
                 // executa o comando dentro do sql
                 int linhasAfetadas = comando.ExecuteNonQuery();
 
@@ -97,6 +100,59 @@ namespace ProjetoAgenda.Controller
                 return false;
             }
 
+        }
+
+        public bool deleteUser(string usuario)
+        {
+            MySqlConnection conexao = ConexaoDb.CriarConexao();
+
+            string sql = "delete from tbUsuario where usuario = @usuario";
+
+            conexao.Open();
+
+            MySqlCommand comando = new MySqlCommand(sql, conexao);
+            comando.Parameters.AddWithValue("@usuario", usuario);
+            int linhasAfetadas = comando.ExecuteNonQuery();
+
+            // encerra a conexao
+            conexao.Close();
+
+            if (linhasAfetadas > 0)
+            {
+                MessageBox.Show("Removido com sucesso");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Remoção negado");
+                return false;
+            }
+        }
+
+        public bool alteraSenha(string usuario, string senha) 
+        {
+            MySqlConnection conexao = ConexaoDb.CriarConexao();
+
+            string sql = "update tbUsuario set senha='@senha' where usuario='@usuario'";
+            conexao.Open();
+            MySqlCommand comando = new MySqlCommand(sql, conexao);
+            comando.Parameters.AddWithValue("@senha", senha);
+            comando.Parameters.AddWithValue("@usuario", usuario);
+            int linhasAfetadas = comando.ExecuteNonQuery();
+
+            // encerra a conexao
+            conexao.Close();
+
+            if (linhasAfetadas > 0)
+            {
+                MessageBox.Show("Senha alterada");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Alteração negado");
+                return false;
+            }
         }
     }
 }

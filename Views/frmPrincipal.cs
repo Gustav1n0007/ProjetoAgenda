@@ -33,5 +33,11 @@ namespace ProjetoAgenda.Views
         {
             Application.Exit();
         }
+
+        private void excluirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsuarios usuarios = new frmUsuarios();
+            usuarios.ShowDialog();
+        }
     }
 }

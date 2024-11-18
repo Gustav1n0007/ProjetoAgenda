@@ -11,4 +11,4 @@ CREATE TABLE tbUsuario(
 CREATE TABLE tbCategoria(
     id_categoria int primary key auto_increment,
     categoria varchar(50) not null
-    );0
+    );
