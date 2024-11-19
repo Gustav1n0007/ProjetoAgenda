@@ -42,17 +42,20 @@ namespace ProjetoAgenda
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            
             // dados do usuario em variaveis
             string usuario = tbxUsuario.Text;
             string senha = tbxSenha.Text;
+
+            UserSession.usuario = usuario;
+            UserSession.senha = senha;
 
             // chamando a classe para adicionar ao banco de dados
             UserController logarUser = new UserController();
             // utilizando a classe
             logarUser.logarUser(usuario, senha);
             
-            UserSession.usuario = usuario;
-            UserSession.senha = senha;
+            
 
         }
     }

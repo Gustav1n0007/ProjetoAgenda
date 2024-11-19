@@ -14,15 +14,14 @@ namespace ProjetoAgenda.Controller
 {
     internal class CategoriaController
     {
-        public bool addCategoria(string categoria)
+        public bool addCategoria(string categoria, string user, string senha)
         {
 
             MySqlConnection conexao = null;
-            string user = UserSession.usuario;
-            string senha = UserSession.senha;
+            
             try
             {
-                conexao = ConexaoDb.CriarConexao(user, senha);
+                conexao = ConexaoDb.CriarConexao(UserSession.usuario, UserSession.senha);
                 string sql = "INSERT INTO tbCategoria (categoria) VALUES (@categoria);";
 
                 conexao.Open();
@@ -62,7 +61,7 @@ namespace ProjetoAgenda.Controller
             try
             {
                 conexao = ConexaoDb.CriarConexao();
-                string sql = "select id_categoria AS 'Código' ,categoria AS 'Categoria' from tbCategoria;";
+                string sql = $"select id_categoria AS 'Código' ,categoria AS 'Categoria', usuario from tbCategoria;";
 
                 conexao.Open();
 

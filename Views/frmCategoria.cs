@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetoAgenda.VariableGlobal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,11 +26,13 @@ namespace ProjetoAgenda.Controller
         }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            string senha = UserSession.senha;
+            string user = UserSession.usuario;
             string categoria = txtCategoria.Text;
             // chamando a classe para adicionar ao banco de dados
             CategoriaController addCategoria = new CategoriaController();
             // utilizando a classe
-            addCategoria.addCategoria(categoria);
+            addCategoria.addCategoria(categoria, user, senha);
 
             atualiza_tabela();
         }
