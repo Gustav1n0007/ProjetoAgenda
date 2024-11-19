@@ -20,7 +20,7 @@ namespace ProjetoAgenda.Views
 
         private void atualiza_tabela()
         {
-            CategoriaController GetUsers = new CategoriaController();
+            UserController GetUsers = new UserController();
             DataTable tabela = GetUsers.getusers();
             dgvUsers.DataSource = tabela;
         }

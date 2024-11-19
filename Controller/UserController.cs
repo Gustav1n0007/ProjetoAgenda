@@ -3,6 +3,7 @@ using ProjetoAgenda.Data;
 using ProjetoAgenda.Views;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -100,6 +101,16 @@ namespace ProjetoAgenda.Controller
                 return false;
             }
 
+        }
+        public DataTable getusers()
+        {
+            MySqlConnection conexao = ConexaoDb.CriarConexao();
+            string sql = "select usuario, nome as Nome, telefone from tbUsuario;";
+            conexao.Open();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao);
+            DataTable tabela = new DataTable();
+            adaptador.Fill(tabela);
+            return tabela;
         }
 
         public bool deleteUser(string usuario)

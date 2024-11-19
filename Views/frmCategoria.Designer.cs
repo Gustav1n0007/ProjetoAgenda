@@ -35,6 +35,7 @@
             label1 = new Label();
             tmrAtualiza = new System.Windows.Forms.Timer(components);
             dgvCategoria = new DataGridView();
+            btnRemoveCategoria = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCategoria).BeginInit();
             SuspendLayout();
             // 
@@ -87,14 +88,27 @@
             dgvCategoria.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCategoria.Location = new Point(396, 12);
             dgvCategoria.Name = "dgvCategoria";
+            dgvCategoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCategoria.Size = new Size(270, 213);
             dgvCategoria.TabIndex = 4;
+            // 
+            // btnRemoveCategoria
+            // 
+            btnRemoveCategoria.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRemoveCategoria.Location = new Point(396, 243);
+            btnRemoveCategoria.Name = "btnRemoveCategoria";
+            btnRemoveCategoria.Size = new Size(270, 61);
+            btnRemoveCategoria.TabIndex = 5;
+            btnRemoveCategoria.Text = "Remover";
+            btnRemoveCategoria.UseVisualStyleBackColor = true;
+            btnRemoveCategoria.Click += btnRemoveCategoria_Click;
             // 
             // frmCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(686, 237);
+            ClientSize = new Size(686, 316);
+            Controls.Add(btnRemoveCategoria);
             Controls.Add(dgvCategoria);
             Controls.Add(label1);
             Controls.Add(btnCancelar);
@@ -116,5 +130,6 @@
         private Label label1;
         private System.Windows.Forms.Timer tmrAtualiza;
         private DataGridView dgvCategoria;
+        private Button btnRemoveCategoria;
     }
 }

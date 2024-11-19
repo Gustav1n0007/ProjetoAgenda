@@ -1,4 +1,5 @@
 using ProjetoAgenda.Controller;
+using ProjetoAgenda.VariableGlobal;
 
 namespace ProjetoAgenda
 {
@@ -50,6 +51,9 @@ namespace ProjetoAgenda
             // utilizando a classe
             logarUser.logarUser(usuario, senha);
             
+            UserSession.usuario = usuario;
+            UserSession.senha = senha;
+
         }
     }
 }

@@ -17,6 +17,12 @@ namespace ProjetoAgenda.Controller
             InitializeComponent();
         }
 
+        private void atualiza_tabela()
+        {
+            CategoriaController exibeCategorias = new CategoriaController();
+            DataTable datatable = exibeCategorias.getCategorias();
+            dgvCategoria.DataSource = datatable;
+        }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             string categoria = txtCategoria.Text;
@@ -25,26 +31,31 @@ namespace ProjetoAgenda.Controller
             // utilizando a classe
             addCategoria.addCategoria(categoria);
 
-            CategoriaController exibeCategorias = new CategoriaController();
-            DataTable datatable = exibeCategorias.getCategorias();
-            dgvCategoria.DataSource = datatable;
+            atualiza_tabela();
         }
 
         private void tmrAtualiza_Tick(object sender, EventArgs e)
         {
-            
+
         }
 
         private void frmCategoria_Load(object sender, EventArgs e)
         {
-            CategoriaController exibeCategorias = new CategoriaController();
-            DataTable datatable = exibeCategorias.getCategorias();
-            dgvCategoria.DataSource = datatable;
+            atualiza_tabela();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
+        }
+
+        private void btnRemoveCategoria_Click(object sender, EventArgs e)
+        {
+            int id_categoria = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
+            CategoriaController removeCategoria = new CategoriaController();
+            removeCategoria.removeCategoria(id_categoria);
+
+            atualiza_tabela();
         }
     }
 }

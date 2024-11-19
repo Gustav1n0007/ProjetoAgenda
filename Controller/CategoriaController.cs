@@ -1,5 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
 using ProjetoAgenda.Data;
+using ProjetoAgenda.VariableGlobal;
 using ProjetoAgenda.Views;
 using System;
 using System.Collections.Generic;
@@ -15,11 +17,12 @@ namespace ProjetoAgenda.Controller
         public bool addCategoria(string categoria)
         {
 
-            MySqlConnection conexao = null; 
-
+            MySqlConnection conexao = null;
+            string user = UserSession.usuario;
+            string senha = UserSession.senha;
             try
             {
-                conexao = ConexaoDb.CriarConexao();
+                conexao = ConexaoDb.CriarConexao(user, senha);
                 string sql = "INSERT INTO tbCategoria (categoria) VALUES (@categoria);";
 
                 conexao.Open();
@@ -82,15 +85,31 @@ namespace ProjetoAgenda.Controller
             }
         }
 
-        public DataTable getusers()
+        public bool removeCategoria(int id_categoria)
         {
             MySqlConnection conexao = ConexaoDb.CriarConexao();
-            string sql = "select usuario, nome as Nome, telefone from tbUsuario;";
+
+            string sql = "delete from tbCategoria where id_categoria = @id_categoria";
+
             conexao.Open();
-            MySqlDataAdapter adaptador = new MySqlDataAdapter (sql, conexao);
-            DataTable tabela = new DataTable();
-            adaptador.Fill(tabela);
-            return tabela;
+
+            MySqlCommand comando = new MySqlCommand(sql, conexao);
+            comando.Parameters.AddWithValue("@id_categoria", id_categoria);
+            int linhasAfetadas = comando.ExecuteNonQuery();
+
+            // encerra a conexao
+            conexao.Close();
+
+            if (linhasAfetadas > 0)
+            {
+                MessageBox.Show("Removido com sucesso");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Remoção negado");
+                return false;
+            }
         }
     }
 }

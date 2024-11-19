@@ -1,3 +1,4 @@
+using ProjetoAgenda.Views;
 namespace ProjetoAgenda
 {
     internal static class Program
@@ -14,4 +15,4 @@ namespace ProjetoAgenda
             Application.Run(new frmLogin());
         }
     }
-}
+}   
