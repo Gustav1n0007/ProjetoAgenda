@@ -36,6 +36,7 @@
             tmrAtualiza = new System.Windows.Forms.Timer(components);
             dgvCategoria = new DataGridView();
             btnRemoveCategoria = new Button();
+            btnAltera = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCategoria).BeginInit();
             SuspendLayout();
             // 
@@ -95,19 +96,31 @@
             // btnRemoveCategoria
             // 
             btnRemoveCategoria.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRemoveCategoria.Location = new Point(396, 243);
+            btnRemoveCategoria.Location = new Point(205, 243);
             btnRemoveCategoria.Name = "btnRemoveCategoria";
-            btnRemoveCategoria.Size = new Size(270, 61);
+            btnRemoveCategoria.Size = new Size(172, 61);
             btnRemoveCategoria.TabIndex = 5;
             btnRemoveCategoria.Text = "Remover";
             btnRemoveCategoria.UseVisualStyleBackColor = true;
             btnRemoveCategoria.Click += btnRemoveCategoria_Click;
+            // 
+            // btnAltera
+            // 
+            btnAltera.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAltera.Location = new Point(12, 243);
+            btnAltera.Name = "btnAltera";
+            btnAltera.Size = new Size(165, 61);
+            btnAltera.TabIndex = 6;
+            btnAltera.Text = "Alterar";
+            btnAltera.UseVisualStyleBackColor = true;
+            btnAltera.Click += btnAltera_Click;
             // 
             // frmCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(686, 316);
+            Controls.Add(btnAltera);
             Controls.Add(btnRemoveCategoria);
             Controls.Add(dgvCategoria);
             Controls.Add(label1);
@@ -131,5 +144,6 @@
         private System.Windows.Forms.Timer tmrAtualiza;
         private DataGridView dgvCategoria;
         private Button btnRemoveCategoria;
+        private Button btnAltera;
     }
 }

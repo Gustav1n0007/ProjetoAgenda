@@ -61,7 +61,7 @@ namespace ProjetoAgenda.Controller
             try
             {
                 conexao = ConexaoDb.CriarConexao();
-                string sql = $"select id_categoria AS 'Código' ,categoria AS 'Categoria', usuario from tbCategoria;";
+                string sql = $"select id_categoria AS 'Código' ,categoria AS 'Categoria', usuario from tbCategoria where usuario = '{UserSession.usuario}@localhost';";
 
                 conexao.Open();
 
@@ -86,7 +86,7 @@ namespace ProjetoAgenda.Controller
 
         public bool removeCategoria(int id_categoria)
         {
-            MySqlConnection conexao = ConexaoDb.CriarConexao();
+            MySqlConnection conexao = ConexaoDb.CriarConexao(UserSession.usuario, UserSession.senha);
 
             string sql = "delete from tbCategoria where id_categoria = @id_categoria";
 
@@ -107,6 +107,32 @@ namespace ProjetoAgenda.Controller
             else
             {
                 MessageBox.Show("Remoção negado");
+                return false;
+            }
+        }
+
+        public bool updateCategoria(int id_categoria, string novoCategoria)
+        {
+            MySqlConnection conexao = ConexaoDb.CriarConexao(UserSession.usuario, UserSession.senha);
+
+            string sql = $"update tbCategoria Set categoria = @novoCategoria where id_categoria = {id_categoria};";
+
+            conexao.Open();
+            MySqlCommand comando = new MySqlCommand(sql, conexao);
+            comando.Parameters.AddWithValue("@novoCategoria", novoCategoria);
+            int linhasAfetadas = comando.ExecuteNonQuery();
+
+            // encerra a conexao
+            conexao.Close();
+
+            if (linhasAfetadas > 0)
+            {
+                MessageBox.Show("Alterado com sucesso");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Alteração negado");
                 return false;
             }
         }

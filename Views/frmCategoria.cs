@@ -60,5 +60,13 @@ namespace ProjetoAgenda.Controller
 
             atualiza_tabela();
         }
+
+        private void btnAltera_Click(object sender, EventArgs e)
+        {
+            string novoNome = txtCategoria.Text;
+            int id_categoria = Convert.ToInt32(dgvCategoria.SelectedRows[0].Cells[0].Value);
+            CategoriaController alteraCategoria = new CategoriaController();
+            alteraCategoria.updateCategoria(id_categoria, novoNome);
+        }
     }
 }
