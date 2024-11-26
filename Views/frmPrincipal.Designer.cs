@@ -36,12 +36,14 @@
             novaCategoriaToolStripMenuItem = new ToolStripMenuItem();
             usuariosToolStripMenuItem = new ToolStripMenuItem();
             excluirToolStripMenuItem = new ToolStripMenuItem();
+            lblBoasVindas = new Label();
+            agendaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem, editarToolStripMenuItem1 });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem, editarToolStripMenuItem1, agendaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -73,13 +75,13 @@
             // 
             categoriasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novaCategoriaToolStripMenuItem });
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(180, 22);
+            categoriasToolStripMenuItem.Size = new Size(130, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
             // 
             // novaCategoriaToolStripMenuItem
             // 
             novaCategoriaToolStripMenuItem.Name = "novaCategoriaToolStripMenuItem";
-            novaCategoriaToolStripMenuItem.Size = new Size(180, 22);
+            novaCategoriaToolStripMenuItem.Size = new Size(154, 22);
             novaCategoriaToolStripMenuItem.Text = "Nova categoria";
             novaCategoriaToolStripMenuItem.Click += novaCategoriaToolStripMenuItem_Click;
             // 
@@ -87,25 +89,42 @@
             // 
             usuariosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { excluirToolStripMenuItem });
             usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            usuariosToolStripMenuItem.Size = new Size(180, 22);
+            usuariosToolStripMenuItem.Size = new Size(130, 22);
             usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // excluirToolStripMenuItem
             // 
             excluirToolStripMenuItem.Name = "excluirToolStripMenuItem";
-            excluirToolStripMenuItem.Size = new Size(180, 22);
+            excluirToolStripMenuItem.Size = new Size(109, 22);
             excluirToolStripMenuItem.Text = "Excluir";
             excluirToolStripMenuItem.Click += excluirToolStripMenuItem_Click;
+            // 
+            // lblBoasVindas
+            // 
+            lblBoasVindas.AutoSize = true;
+            lblBoasVindas.Location = new Point(10, 46);
+            lblBoasVindas.Name = "lblBoasVindas";
+            lblBoasVindas.Size = new Size(0, 15);
+            lblBoasVindas.TabIndex = 1;
+            // 
+            // agendaToolStripMenuItem
+            // 
+            agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
+            agendaToolStripMenuItem.Size = new Size(60, 20);
+            agendaToolStripMenuItem.Text = "Agenda";
+            agendaToolStripMenuItem.Click += agendaToolStripMenuItem_Click;
             // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblBoasVindas);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "frmPrincipal";
             Text = "Menu agenda";
+            Load += frmPrincipal_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -122,5 +141,7 @@
         private ToolStripMenuItem novaCategoriaToolStripMenuItem;
         private ToolStripMenuItem usuariosToolStripMenuItem;
         private ToolStripMenuItem excluirToolStripMenuItem;
+        private Label lblBoasVindas;
+        private ToolStripMenuItem agendaToolStripMenuItem;
     }
 }

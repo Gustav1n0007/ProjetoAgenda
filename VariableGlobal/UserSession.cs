@@ -11,7 +11,7 @@ namespace ProjetoAgenda.VariableGlobal
     {
         private static string _usuario = null;
         private static string _senha = null;
-
+        private static string _nome = null;
         public static string usuario
         {
             get
@@ -29,6 +29,11 @@ namespace ProjetoAgenda.VariableGlobal
             get { return _senha; }
             set { _senha = value; }
         }
-        
+
+        public static string nome
+        {
+            get { return _nome; }
+            set { _nome = value; }
+        }
     }
 }

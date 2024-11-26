@@ -1,4 +1,5 @@
 ﻿using ProjetoAgenda.Controller;
+using ProjetoAgenda.VariableGlobal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,17 @@ namespace ProjetoAgenda.Views
         {
             frmUsuarios usuarios = new frmUsuarios();
             usuarios.ShowDialog();
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            lblBoasVindas.Text = $"Boas vindas {UserSession.nome}";
+        }
+
+        private void agendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgenda frmAgenda = new frmAgenda();
+            frmAgenda.ShowDialog();
         }
     }
 }

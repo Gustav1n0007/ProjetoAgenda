@@ -84,6 +84,10 @@ namespace ProjetoAgenda.Controller
 
                 if (resultado.Read())
                 {
+                    UserSession.usuario = resultado.GetString("usuario");
+                    UserSession.nome = resultado.GetString("nome");
+                    UserSession.senha = resultado.GetString("senha");
+
                     conexao.Close();
                     MessageBox.Show("login efetuado");
                     frmPrincipal frmTeste = new frmPrincipal();
