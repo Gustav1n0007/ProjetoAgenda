@@ -23,6 +23,12 @@ namespace ProjetoAgenda.Views
             ContatoController exibeCategorias = new ContatoController();
             DataTable datatable = exibeCategorias.getContatos();
             dgvContatos.DataSource = datatable;
+
+            CategoriaController exibeCategoria = new CategoriaController();
+            DataTable categorias = exibeCategoria.getCategorias();
+            comboBox1.DataSource = categorias;
+            comboBox1.DisplayMember = "categoria";
+            string categoria = comboBox1.Text;
         }
         private void frmAgenda_Load(object sender, EventArgs e)
         {
@@ -31,24 +37,41 @@ namespace ProjetoAgenda.Views
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            CategoriaController exibeCategoria = new CategoriaController();
+            DataTable categorias = exibeCategoria.getCategorias();
+            comboBox1.DataSource = categorias;
+            comboBox1.DisplayMember = "categoria";
+            string categoria = comboBox1.Text;
             string contato = txtContato.Text;
             string telefone = txtTelefone.Text;
-            string categoria = txtCategoria.Text;
 
             ContatoController addUser = new ContatoController();
             addUser.addContato(contato, telefone, categoria);
             exibeContatos();
         }
 
-        private void btnAlterar_Click(object sender, EventArgs e)   
+        private void btnAlterar_Click(object sender, EventArgs e)
         {
-            int id_categoria = Convert.ToInt32(dgvContatos.SelectedRows[0].Cells[0].Value);
+            CategoriaController exibeCategoria = new CategoriaController();
+            DataTable categorias = exibeCategoria.getCategorias();
+            comboBox1.DataSource = categorias;
+            comboBox1.DisplayMember = "categoria";
+            string categoria =  comboBox1.SelectedItem.ToString();
+            int id_contato = Convert.ToInt32(dgvContatos.SelectedRows[0].Cells[0].Value);
             string contato = txtContato.Text;
             string telefone = txtTelefone.Text;
-            string categoria = txtCategoria.Text;
 
             ContatoController alteraContato = new ContatoController();
-            alteraContato.updateContato(contato, telefone, categoria, id_categoria);
+            alteraContato.updateContato(contato, telefone, id_contato, categoria);
+            exibeContatos();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            int id_contato = Convert.ToInt32(dgvContatos.SelectedRows[0].Cells[0].Value);
+
+            ContatoController delContato = new ContatoController();
+            delContato.delContato(id_contato);
             exibeContatos();
         }
     }

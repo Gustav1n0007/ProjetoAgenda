@@ -38,7 +38,6 @@ namespace ProjetoAgenda.Controller
 
                 comando.Parameters.AddWithValue("@contato", contato);
                 comando.Parameters.AddWithValue("@telefone", telefone);
-                comando.Parameters.AddWithValue("@categoria", categoria);
 
                 int linhasafetadas = comando.ExecuteNonQuery();
                 conexao.Close();
@@ -63,7 +62,7 @@ namespace ProjetoAgenda.Controller
                 conexao.Close();
             }
         }
-        public bool updateContato(string contato, string telefone, string categoria, int id_contato)
+        public bool updateContato(string contato, string telefone, int id_contato, string categoria)
         {
             MySqlConnection conexao = null;
 
@@ -79,7 +78,6 @@ namespace ProjetoAgenda.Controller
                 comando.Parameters.AddWithValue("@id_contato", id_contato);
                 comando.Parameters.AddWithValue("@contato", contato);
                 comando.Parameters.AddWithValue("@telefone", telefone);
-                comando.Parameters.AddWithValue("@categoria", categoria);
 
                 int linhasafetadas = comando.ExecuteNonQuery();
                 conexao.Close();
@@ -102,6 +100,32 @@ namespace ProjetoAgenda.Controller
             finally
             {
                 conexao.Close();
+            }
+        }
+        public bool delContato(int id_contato)
+        {
+            MySqlConnection conexao = ConexaoDb.CriarConexao(UserSession.usuario, UserSession.senha);
+
+            string sql = "delete from tbContato where id_contato = @id_contato";
+
+            conexao.Open();
+
+            MySqlCommand comando = new MySqlCommand(sql, conexao);
+            comando.Parameters.AddWithValue("@id_contato", id_contato);
+            int linhasAfetadas = comando.ExecuteNonQuery();
+
+            // encerra a conexao
+            conexao.Close();
+
+            if (linhasAfetadas > 0)
+            {
+                MessageBox.Show("Removido com sucesso");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Remoção negado");
+                return false;
             }
         }
     }

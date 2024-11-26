@@ -33,11 +33,11 @@
             label3 = new Label();
             txtContato = new TextBox();
             txtTelefone = new TextBox();
-            txtCategoria = new TextBox();
             btnCadastrar = new Button();
             btnExcluir = new Button();
             btnAlterar = new Button();
             dgvContatos = new DataGridView();
+            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvContatos).BeginInit();
             SuspendLayout();
             // 
@@ -87,14 +87,6 @@
             txtTelefone.Size = new Size(262, 39);
             txtTelefone.TabIndex = 4;
             // 
-            // txtCategoria
-            // 
-            txtCategoria.Location = new Point(45, 212);
-            txtCategoria.Multiline = true;
-            txtCategoria.Name = "txtCategoria";
-            txtCategoria.Size = new Size(262, 39);
-            txtCategoria.TabIndex = 5;
-            // 
             // btnCadastrar
             // 
             btnCadastrar.Location = new Point(45, 273);
@@ -113,6 +105,7 @@
             btnExcluir.TabIndex = 7;
             btnExcluir.Text = "EXCLUIR";
             btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // btnAlterar
             // 
@@ -130,19 +123,27 @@
             dgvContatos.Location = new Point(349, 59);
             dgvContatos.Name = "dgvContatos";
             dgvContatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvContatos.Size = new Size(426, 332);
+            dgvContatos.Size = new Size(576, 332);
             dgvContatos.TabIndex = 9;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(45, 212);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(262, 23);
+            comboBox1.TabIndex = 10;
             // 
             // frmAgenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(937, 450);
+            Controls.Add(comboBox1);
             Controls.Add(dgvContatos);
             Controls.Add(btnAlterar);
             Controls.Add(btnExcluir);
             Controls.Add(btnCadastrar);
-            Controls.Add(txtCategoria);
             Controls.Add(txtTelefone);
             Controls.Add(txtContato);
             Controls.Add(label3);
@@ -168,5 +169,6 @@
         private Button btnExcluir;
         private Button btnAlterar;
         private DataGridView dgvContatos;
+        private ComboBox comboBox1;
     }
 }
