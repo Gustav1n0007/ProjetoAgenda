@@ -41,7 +41,7 @@ namespace ProjetoAgenda.Views
             DataTable categorias = exibeCategoria.getCategorias();
             comboBox1.DataSource = categorias;
             comboBox1.DisplayMember = "categoria";
-            string categoria = comboBox1.Text;
+            string categoria = comboBox1.Text.ToString() ?? string.Empty;
             string contato = txtContato.Text;
             string telefone = txtTelefone.Text;
 
@@ -56,7 +56,7 @@ namespace ProjetoAgenda.Views
             DataTable categorias = exibeCategoria.getCategorias();
             comboBox1.DataSource = categorias;
             comboBox1.DisplayMember = "categoria";
-            string categoria =  comboBox1.SelectedItem.ToString();
+            string categoria =  comboBox1.Text.ToString();
             int id_contato = Convert.ToInt32(dgvContatos.SelectedRows[0].Cells[0].Value);
             string contato = txtContato.Text;
             string telefone = txtTelefone.Text;
