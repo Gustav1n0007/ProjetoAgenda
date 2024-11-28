@@ -15,10 +15,11 @@ namespace ProjetoAgenda.Controller
     {
         public bool AddUser(string nome, string usuario, string telefone, string senha)
         {
+            MySqlConnection conexao = ConexaoDb.CriarConexao();
+
             try
             {
                 // cria a conexao com o banco de dados
-                MySqlConnection conexao = ConexaoDb.CriarConexao();
 
                 // inicia uma conexao 
                 conexao.Open();
@@ -60,14 +61,19 @@ namespace ProjetoAgenda.Controller
                 MessageBox.Show($"{erro.Message}","erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+            finally
+            {
+                conexao.Close();
+            }
             
         }
 
         public bool logarUser(string usuario, string senha)
         {
+            MySqlConnection conexao = ConexaoDb.CriarConexao();
+
             try
             {
-                MySqlConnection conexao = ConexaoDb.CriarConexao();
 
                 string sql = "select * from tbUsuario where binary usuario=@usuario and binary senha =@senha;";
 
@@ -105,7 +111,10 @@ namespace ProjetoAgenda.Controller
                 MessageBox.Show($"Login nao foi efetuado /n Erro: {erro}");
                 return false;
             }
-
+            finally
+            {
+                conexao.Close();
+            }
         }
         public DataTable getusers()
         {
@@ -120,55 +129,77 @@ namespace ProjetoAgenda.Controller
 
         public bool deleteUser(string usuario)
         {
-            MySqlConnection conexao = ConexaoDb.CriarConexao();
-
-            string sql = "delete from tbUsuario where usuario = @usuario";
-
-            conexao.Open();
-
-            MySqlCommand comando = new MySqlCommand(sql, conexao);
-            comando.Parameters.AddWithValue("@usuario", usuario);
-            int linhasAfetadas = comando.ExecuteNonQuery();
-
-            // encerra a conexao
-            conexao.Close();
-
-            if (linhasAfetadas > 0)
+            MySqlConnection conexao = ConexaoDb.CriarConexao(UserSession.usuario, UserSession.senha);
+            try
             {
-                MessageBox.Show("Removido com sucesso");
-                return true;
+                string sql = "delete from tbUsuario where usuario = @usuario";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("@usuario", usuario);
+                int linhasAfetadas = comando.ExecuteNonQuery();
+
+                // encerra a conexao
+                conexao.Close();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Removido com sucesso");
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Remoção negado");
+                    return false;
+                }
             }
-            else
+            catch (Exception erro)
             {
-                MessageBox.Show("Remoção negado");
+                MessageBox.Show(erro.Message);
                 return false;
+            }
+             finally
+            {
+                conexao.Close();
             }
         }
 
         public bool alteraSenha(string usuario, string senha) 
         {
-            MySqlConnection conexao = ConexaoDb.CriarConexao();
-
-            string sql = "update tbUsuario set senha='@senha' where usuario='@usuario'";
-            conexao.Open();
-            MySqlCommand comando = new MySqlCommand(sql, conexao);
-            comando.Parameters.AddWithValue("@senha", senha);
-            comando.Parameters.AddWithValue("@usuario", usuario);
-            int linhasAfetadas = comando.ExecuteNonQuery();
-
-            // encerra a conexao
-            conexao.Close();
-
-            if (linhasAfetadas > 0)
+            MySqlConnection conexao = ConexaoDb.CriarConexao(UserSession.usuario, UserSession.senha);
+            try
             {
-                MessageBox.Show("Senha alterada");
-                return true;
+                string sql = "update tbUsuario set senha='@senha' where usuario='@usuario'";
+                conexao.Open();
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("@senha", senha);
+                comando.Parameters.AddWithValue("@usuario", usuario);
+                int linhasAfetadas = comando.ExecuteNonQuery();
+
+                // encerra a conexao
+                conexao.Close();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Senha alterada");
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Alteração negado");
+                    return false;
+                }
             }
-            else
+            catch (Exception erro)
             {
-                MessageBox.Show("Alteração negado");
+                MessageBox.Show(erro.Message);
                 return false;
             }
+            finally
+            {
+                conexao.Close();
+            } 
         }
     }
 }
