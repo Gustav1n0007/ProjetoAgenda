@@ -88,53 +88,79 @@ namespace ProjetoAgenda.Controller
         {
             MySqlConnection conexao = ConexaoDb.CriarConexao(UserSession.usuario, UserSession.senha);
 
-            string sql = "delete from tbCategoria where id_categoria = @id_categoria";
-
-            conexao.Open();
-
-            MySqlCommand comando = new MySqlCommand(sql, conexao);
-            comando.Parameters.AddWithValue("@id_categoria", id_categoria);
-            int linhasAfetadas = comando.ExecuteNonQuery();
-
-            // encerra a conexao
-            conexao.Close();
-
-            if (linhasAfetadas > 0)
+            try
             {
-                MessageBox.Show("Removido com sucesso");
-                return true;
+                string sql = "delete from tbCategoria where id_categoria = @id_categoria";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("@id_categoria", id_categoria);
+                int linhasAfetadas = comando.ExecuteNonQuery();
+
+                // encerra a conexao
+                conexao.Close();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Removido com sucesso");
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Remoção negado");
+                    return false;
+                }
             }
-            else
+            
+            catch (Exception erro)
             {
-                MessageBox.Show("Remoção negado");
+                MessageBox.Show(erro.Message);
                 return false;
+            }
+
+            finally
+            {
+                conexao.Close();
             }
         }
 
         public bool updateCategoria(int id_categoria, string novoCategoria)
         {
             MySqlConnection conexao = ConexaoDb.CriarConexao(UserSession.usuario, UserSession.senha);
-
-            string sql = $"update tbCategoria Set categoria = @novoCategoria where id_categoria = {id_categoria};";
-
-            conexao.Open();
-            MySqlCommand comando = new MySqlCommand(sql, conexao);
-            comando.Parameters.AddWithValue("@novoCategoria", novoCategoria);
-            int linhasAfetadas = comando.ExecuteNonQuery();
-
-            // encerra a conexao
-            conexao.Close();
-
-            if (linhasAfetadas > 0)
+            try
             {
-                MessageBox.Show("Alterado com sucesso");
-                return true;
+                string sql = $"update tbCategoria Set categoria = @novoCategoria where id_categoria = {id_categoria};";
+
+                conexao.Open();
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("@novoCategoria", novoCategoria);
+                int linhasAfetadas = comando.ExecuteNonQuery();
+
+                // encerra a conexao
+                conexao.Close();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Alterado com sucesso");
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Alteração negado");
+                    return false;
+                }
             }
-            else
+            catch (Exception erro)
             {
-                MessageBox.Show("Alteração negado");
+                MessageBox.Show(erro.Message);
                 return false;
             }
+            finally 
+            { 
+                conexao.Close(); 
+            }
+            
         }
     }
 }

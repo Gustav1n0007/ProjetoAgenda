@@ -107,28 +107,40 @@ namespace ProjetoAgenda.Controller
         public bool delContato(int id_contato)
         {
             MySqlConnection conexao = ConexaoDb.CriarConexao(UserSession.usuario, UserSession.senha);
-
-            string sql = "delete from tbContato where id_contato = @id_contato";
-
-            conexao.Open();
-
-            MySqlCommand comando = new MySqlCommand(sql, conexao);
-            comando.Parameters.AddWithValue("@id_contato", id_contato);
-            int linhasAfetadas = comando.ExecuteNonQuery();
-
-            // encerra a conexao
-            conexao.Close();
-
-            if (linhasAfetadas > 0)
+            try
             {
-                MessageBox.Show("Removido com sucesso");
-                return true;
+                string sql = "delete from tbContato where id_contato = @id_contato";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("@id_contato", id_contato);
+                int linhasAfetadas = comando.ExecuteNonQuery();
+
+                // encerra a conexao
+                conexao.Close();
+
+                if (linhasAfetadas > 0)
+                {
+                    MessageBox.Show("Removido com sucesso");
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Remoção negado");
+                    return false;
+                }
             }
-            else
+            catch (Exception erro)
             {
-                MessageBox.Show("Remoção negado");
+                MessageBox.Show($"ocorreu um erro: {erro.Message}");
                 return false;
             }
+            finally 
+            { 
+                conexao.Close(); 
+            }
+            
         }
     }
 }
