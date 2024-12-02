@@ -43,7 +43,7 @@ namespace ProjetoAgenda.Views
             comboBox1.DisplayMember = "categoria";
             string categoria = comboBox1.Text.ToString() ?? string.Empty;
             string contato = txtContato.Text;
-            string telefone = txtTelefone.Text;
+            string telefone = txtTelefone.Text;     
 
             ContatoController addUser = new ContatoController();
             addUser.addContato(contato, telefone, categoria);
