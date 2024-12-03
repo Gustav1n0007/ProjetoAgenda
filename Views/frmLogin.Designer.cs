@@ -30,8 +30,8 @@
         {
             lblUsuario = new Label();
             lblSenha = new Label();
-            tbxSenha = new TextBox();
-            tbxUsuario = new TextBox();
+            txtSenha = new TextBox();
+            txtUsuario = new TextBox();
             btnLogin = new Button();
             btnCadastro = new Button();
             SuspendLayout();
@@ -56,24 +56,24 @@
             lblSenha.TabIndex = 1;
             lblSenha.Text = "Senha";
             // 
-            // tbxSenha
+            // txtSenha
             // 
-            tbxSenha.Location = new Point(70, 116);
-            tbxSenha.Margin = new Padding(3, 2, 3, 2);
-            tbxSenha.Name = "tbxSenha";
-            tbxSenha.Size = new Size(279, 23);
-            tbxSenha.TabIndex = 2;
-            tbxSenha.UseSystemPasswordChar = true;
-            tbxSenha.TextChanged += tbxSenha_TextChanged;
+            txtSenha.Location = new Point(70, 116);
+            txtSenha.Margin = new Padding(3, 2, 3, 2);
+            txtSenha.Name = "txtSenha";
+            txtSenha.Size = new Size(279, 23);
+            txtSenha.TabIndex = 2;
+            txtSenha.UseSystemPasswordChar = true;
+            txtSenha.TextChanged += tbxSenha_TextChanged;
             // 
-            // tbxUsuario
+            // txtUsuario
             // 
-            tbxUsuario.Location = new Point(70, 52);
-            tbxUsuario.Margin = new Padding(3, 2, 3, 2);
-            tbxUsuario.Name = "tbxUsuario";
-            tbxUsuario.Size = new Size(279, 23);
-            tbxUsuario.TabIndex = 3;
-            tbxUsuario.TextChanged += tbxUsuario_TextChanged;
+            txtUsuario.Location = new Point(70, 52);
+            txtUsuario.Margin = new Padding(3, 2, 3, 2);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(279, 23);
+            txtUsuario.TabIndex = 3;
+            txtUsuario.TextChanged += tbxUsuario_TextChanged;
             // 
             // btnLogin
             // 
@@ -106,8 +106,8 @@
             ClientSize = new Size(420, 226);
             Controls.Add(btnCadastro);
             Controls.Add(btnLogin);
-            Controls.Add(tbxUsuario);
-            Controls.Add(tbxSenha);
+            Controls.Add(txtUsuario);
+            Controls.Add(txtSenha);
             Controls.Add(lblSenha);
             Controls.Add(lblUsuario);
             Margin = new Padding(3, 2, 3, 2);
@@ -121,8 +121,8 @@
 
         private Label lblUsuario;
         private Label lblSenha;
-        private TextBox tbxSenha;
-        private TextBox tbxUsuario;
+        private TextBox txtSenha;
+        private TextBox txtUsuario;
         private Button btnLogin;
         private Button btnCadastro;
     }

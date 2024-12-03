@@ -13,7 +13,7 @@ namespace ProjetoAgenda
         private void habilitarBotaoLogin()
         {
             // checa se o tamanho do usuario e senha é maior que o estipulado e habilita o botão caso verdadeiro
-            if (tbxUsuario.TextLength > 0 && tbxSenha.TextLength >= 8)
+            if (txtUsuario.TextLength > 0 && txtSenha.TextLength >= 8)
             {
                 btnLogin.Enabled = true;
             }
@@ -44,8 +44,8 @@ namespace ProjetoAgenda
         {
             
             // dados do usuario em variaveis
-            string usuario = tbxUsuario.Text;
-            string senha = tbxSenha.Text;
+            string usuario = txtUsuario.Text;
+            string senha = txtSenha.Text;
 
             UserSession.usuario = usuario;
             UserSession.senha = senha;

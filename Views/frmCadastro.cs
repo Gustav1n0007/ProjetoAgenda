@@ -23,7 +23,7 @@ namespace ProjetoAgenda
         private void habilitarCadastrar()
         {
 
-            if (tbxNome.Text != "" && tbxUsuario.Text != "" && tbxTelefone.Text != "" && tbxSenha.Text.Length > 8 && tbxSenha.Text == tbxConfirm.Text) 
+            if (txtNome.Text != "" && txtUsuario.Text != "" && txtTelefone.Text != "" && txtSenha.Text.Length > 8 && txtSenha.Text == txtRepeteSenha.Text) 
             {
                 btnCadastrar.Enabled = true;    
             };
@@ -61,10 +61,10 @@ namespace ProjetoAgenda
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             // dados do usuario em variaveis
-            string nome = tbxNome.Text;
-            string usuario = tbxUsuario.Text;
-            string telefone = tbxTelefone.Text;
-            string senha = tbxSenha.Text;
+            string nome = txtNome.Text;
+            string usuario = txtUsuario.Text;
+            string telefone = txtTelefone.Text;
+            string senha = txtSenha.Text;
 
             // chamando a classe para adicionar ao banco de dados
             UserController addUser = new UserController();

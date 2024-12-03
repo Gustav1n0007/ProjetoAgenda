@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             lblNome = new Label();
-            tbxNome = new TextBox();
-            tbxUsuario = new TextBox();
+            txtNome = new TextBox();
+            txtUsuario = new TextBox();
             lblUsuario = new Label();
-            tbxTelefone = new TextBox();
+            txtTelefone = new TextBox();
             lblTelefone = new Label();
-            tbxConfirm = new TextBox();
+            txtRepeteSenha = new TextBox();
             lblConfirm = new Label();
-            tbxSenha = new TextBox();
+            txtSenha = new TextBox();
             lblSenha = new Label();
             btnCadastrar = new Button();
             btnCancelar = new Button();
@@ -52,23 +52,23 @@
             lblNome.TabIndex = 1;
             lblNome.Text = "Nome";
             // 
-            // tbxNome
+            // txtNome
             // 
-            tbxNome.Location = new Point(35, 47);
-            tbxNome.Margin = new Padding(3, 2, 3, 2);
-            tbxNome.Name = "tbxNome";
-            tbxNome.Size = new Size(320, 23);
-            tbxNome.TabIndex = 2;
-            tbxNome.TextChanged += tbxNome_TextChanged;
+            txtNome.Location = new Point(35, 47);
+            txtNome.Margin = new Padding(3, 2, 3, 2);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(320, 23);
+            txtNome.TabIndex = 2;
+            txtNome.TextChanged += tbxNome_TextChanged;
             // 
-            // tbxUsuario
+            // txtUsuario
             // 
-            tbxUsuario.Location = new Point(35, 103);
-            tbxUsuario.Margin = new Padding(3, 2, 3, 2);
-            tbxUsuario.Name = "tbxUsuario";
-            tbxUsuario.Size = new Size(320, 23);
-            tbxUsuario.TabIndex = 4;
-            tbxUsuario.TextChanged += tbxUsuario_TextChanged;
+            txtUsuario.Location = new Point(35, 103);
+            txtUsuario.Margin = new Padding(3, 2, 3, 2);
+            txtUsuario.Name = "txtUsuario";
+            txtUsuario.Size = new Size(320, 23);
+            txtUsuario.TabIndex = 4;
+            txtUsuario.TextChanged += tbxUsuario_TextChanged;
             // 
             // lblUsuario
             // 
@@ -80,14 +80,14 @@
             lblUsuario.TabIndex = 3;
             lblUsuario.Text = "Usuário";
             // 
-            // tbxTelefone
+            // txtTelefone
             // 
-            tbxTelefone.Location = new Point(35, 160);
-            tbxTelefone.Margin = new Padding(3, 2, 3, 2);
-            tbxTelefone.Name = "tbxTelefone";
-            tbxTelefone.Size = new Size(320, 23);
-            tbxTelefone.TabIndex = 6;
-            tbxTelefone.TextChanged += tbxTelefone_TextChanged;
+            txtTelefone.Location = new Point(35, 160);
+            txtTelefone.Margin = new Padding(3, 2, 3, 2);
+            txtTelefone.Name = "txtTelefone";
+            txtTelefone.Size = new Size(320, 23);
+            txtTelefone.TabIndex = 6;
+            txtTelefone.TextChanged += tbxTelefone_TextChanged;
             // 
             // lblTelefone
             // 
@@ -99,15 +99,15 @@
             lblTelefone.TabIndex = 5;
             lblTelefone.Text = "Telefone";
             // 
-            // tbxConfirm
+            // txtRepeteSenha
             // 
-            tbxConfirm.Location = new Point(35, 272);
-            tbxConfirm.Margin = new Padding(3, 2, 3, 2);
-            tbxConfirm.Name = "tbxConfirm";
-            tbxConfirm.PasswordChar = '*';
-            tbxConfirm.Size = new Size(320, 23);
-            tbxConfirm.TabIndex = 8;
-            tbxConfirm.TextChanged += tbxConfirm_TextChanged;
+            txtRepeteSenha.Location = new Point(35, 272);
+            txtRepeteSenha.Margin = new Padding(3, 2, 3, 2);
+            txtRepeteSenha.Name = "txtRepeteSenha";
+            txtRepeteSenha.PasswordChar = '*';
+            txtRepeteSenha.Size = new Size(320, 23);
+            txtRepeteSenha.TabIndex = 8;
+            txtRepeteSenha.TextChanged += tbxConfirm_TextChanged;
             // 
             // lblConfirm
             // 
@@ -119,15 +119,15 @@
             lblConfirm.TabIndex = 7;
             lblConfirm.Text = "Confirme a senha";
             // 
-            // tbxSenha
+            // txtSenha
             // 
-            tbxSenha.Location = new Point(35, 215);
-            tbxSenha.Margin = new Padding(3, 2, 3, 2);
-            tbxSenha.Name = "tbxSenha";
-            tbxSenha.PasswordChar = '*';
-            tbxSenha.Size = new Size(320, 23);
-            tbxSenha.TabIndex = 10;
-            tbxSenha.TextChanged += tbxSenha_TextChanged;
+            txtSenha.Location = new Point(35, 215);
+            txtSenha.Margin = new Padding(3, 2, 3, 2);
+            txtSenha.Name = "txtSenha";
+            txtSenha.PasswordChar = '*';
+            txtSenha.Size = new Size(320, 23);
+            txtSenha.TabIndex = 10;
+            txtSenha.TextChanged += tbxSenha_TextChanged;
             // 
             // lblSenha
             // 
@@ -169,15 +169,15 @@
             ClientSize = new Size(420, 412);
             Controls.Add(btnCancelar);
             Controls.Add(btnCadastrar);
-            Controls.Add(tbxSenha);
+            Controls.Add(txtSenha);
             Controls.Add(lblSenha);
-            Controls.Add(tbxConfirm);
+            Controls.Add(txtRepeteSenha);
             Controls.Add(lblConfirm);
-            Controls.Add(tbxTelefone);
+            Controls.Add(txtTelefone);
             Controls.Add(lblTelefone);
-            Controls.Add(tbxUsuario);
+            Controls.Add(txtUsuario);
             Controls.Add(lblUsuario);
-            Controls.Add(tbxNome);
+            Controls.Add(txtNome);
             Controls.Add(lblNome);
             Margin = new Padding(3, 2, 3, 2);
             Name = "frmCadastro";
@@ -189,14 +189,14 @@
         #endregion
 
         private Label lblNome;
-        private TextBox tbxNome;
-        private TextBox tbxUsuario;
+        private TextBox txtNome;
+        private TextBox txtUsuario;
         private Label lblUsuario;
-        private TextBox tbxTelefone;
+        private TextBox txtTelefone;
         private Label lblTelefone;
-        private TextBox tbxConfirm;
+        private TextBox txtRepeteSenha;
         private Label lblConfirm;
-        private TextBox tbxSenha;
+        private TextBox txtSenha;
         private Label lblSenha;
         private Button btnCadastrar;
         private Button btnCancelar;
