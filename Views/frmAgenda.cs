@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ProjetoAgenda.Views
 {
@@ -28,7 +29,6 @@ namespace ProjetoAgenda.Views
             DataTable categorias = exibeCategoria.getCategorias();
             comboBox1.DataSource = categorias;
             comboBox1.DisplayMember = "categoria";
-            string categoria = comboBox1.Text;
         }
         private void frmAgenda_Load(object sender, EventArgs e)
         {
@@ -41,7 +41,9 @@ namespace ProjetoAgenda.Views
             DataTable categorias = exibeCategoria.getCategorias();
             comboBox1.DataSource = categorias;
             comboBox1.DisplayMember = "categoria";
-            string categoria = comboBox1.Text.ToString() ?? string.Empty;
+
+            string categoria = comboBox1.Text.ToString();
+
             string contato = txtContato.Text;
             string telefone = txtTelefone.Text;     
 
@@ -56,7 +58,8 @@ namespace ProjetoAgenda.Views
             DataTable categorias = exibeCategoria.getCategorias();
             comboBox1.DataSource = categorias;
             comboBox1.DisplayMember = "categoria";
-            string categoria =  comboBox1.Text.ToString();
+
+            string categoria =  comboBox1.Text.ToString() ?? string.Empty;
             int id_contato = Convert.ToInt32(dgvContatos.SelectedRows[0].Cells[0].Value);
             string contato = txtContato.Text;
             string telefone = txtTelefone.Text;

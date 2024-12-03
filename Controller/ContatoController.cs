@@ -38,7 +38,7 @@ namespace ProjetoAgenda.Controller
 
                 comando.Parameters.AddWithValue("@contato", contato);
                 comando.Parameters.AddWithValue("@telefone", telefone);
-                comando.Parameters.AddWithValue("categoria", categoria);
+                comando.Parameters.AddWithValue("@categoria", categoria);
 
                 int linhasafetadas = comando.ExecuteNonQuery();
                 conexao.Close();
@@ -79,7 +79,7 @@ namespace ProjetoAgenda.Controller
                 comando.Parameters.AddWithValue("@id_contato", id_contato);
                 comando.Parameters.AddWithValue("@contato", contato);
                 comando.Parameters.AddWithValue("@telefone", telefone);
-                comando.Parameters.AddWithValue("categoria", categoria);
+                comando.Parameters.AddWithValue("@categoria", categoria);
 
                 int linhasafetadas = comando.ExecuteNonQuery();
                 conexao.Close();

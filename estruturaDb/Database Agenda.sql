@@ -158,8 +158,3 @@ BEGIN
 END AlexMestreDosMago
 
 select * from tblog; 
-select * from tbInsert;
-select * from tbUpdate;
-select * from tbexcluicontato;
-select * from tbinsertcontato;
-select * from tbupdatecontato;
