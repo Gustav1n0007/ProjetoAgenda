@@ -36,9 +36,15 @@
             novaCategoriaToolStripMenuItem = new ToolStripMenuItem();
             usuariosToolStripMenuItem = new ToolStripMenuItem();
             excluirToolStripMenuItem = new ToolStripMenuItem();
-            lblBoasVindas = new Label();
             agendaToolStripMenuItem = new ToolStripMenuItem();
+            lblBoasVindas = new Label();
+            groupBox1 = new GroupBox();
+            lblUser = new Label();
+            lblNome = new Label();
+            lblUsuario = new Label();
+            lblNomeDoUsuario = new Label();
             menuStrip1.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -99,14 +105,6 @@
             excluirToolStripMenuItem.Text = "Excluir";
             excluirToolStripMenuItem.Click += excluirToolStripMenuItem_Click;
             // 
-            // lblBoasVindas
-            // 
-            lblBoasVindas.AutoSize = true;
-            lblBoasVindas.Location = new Point(10, 46);
-            lblBoasVindas.Name = "lblBoasVindas";
-            lblBoasVindas.Size = new Size(0, 15);
-            lblBoasVindas.TabIndex = 1;
-            // 
             // agendaToolStripMenuItem
             // 
             agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
@@ -114,11 +112,72 @@
             agendaToolStripMenuItem.Text = "Agenda";
             agendaToolStripMenuItem.Click += agendaToolStripMenuItem_Click;
             // 
+            // lblBoasVindas
+            // 
+            lblBoasVindas.AutoSize = true;
+            lblBoasVindas.Location = new Point(186, 9);
+            lblBoasVindas.Name = "lblBoasVindas";
+            lblBoasVindas.Size = new Size(0, 15);
+            lblBoasVindas.TabIndex = 1;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(lblUser);
+            groupBox1.Controls.Add(lblNome);
+            groupBox1.Controls.Add(lblUsuario);
+            groupBox1.Controls.Add(lblNomeDoUsuario);
+            groupBox1.Location = new Point(432, 100);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(284, 260);
+            groupBox1.TabIndex = 2;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Informações do Usuario";
+            // 
+            // lblUser
+            // 
+            lblUser.AutoSize = true;
+            lblUser.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblUser.Location = new Point(35, 165);
+            lblUser.Name = "lblUser";
+            lblUser.Size = new Size(52, 21);
+            lblUser.TabIndex = 3;
+            lblUser.Text = "label1";
+            // 
+            // lblNome
+            // 
+            lblNome.AutoSize = true;
+            lblNome.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblNome.Location = new Point(35, 83);
+            lblNome.Name = "lblNome";
+            lblNome.Size = new Size(0, 21);
+            lblNome.TabIndex = 2;
+            // 
+            // lblUsuario
+            // 
+            lblUsuario.AutoSize = true;
+            lblUsuario.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUsuario.Location = new Point(30, 120);
+            lblUsuario.Name = "lblUsuario";
+            lblUsuario.Size = new Size(103, 25);
+            lblUsuario.TabIndex = 1;
+            lblUsuario.Text = "lblUsuario";
+            // 
+            // lblNomeDoUsuario
+            // 
+            lblNomeDoUsuario.AutoSize = true;
+            lblNomeDoUsuario.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNomeDoUsuario.Location = new Point(30, 39);
+            lblNomeDoUsuario.Name = "lblNomeDoUsuario";
+            lblNomeDoUsuario.Size = new Size(66, 25);
+            lblNomeDoUsuario.TabIndex = 0;
+            lblNomeDoUsuario.Text = "Nome";
+            // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(groupBox1);
             Controls.Add(lblBoasVindas);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -127,6 +186,8 @@
             Load += frmPrincipal_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -143,5 +204,10 @@
         private ToolStripMenuItem excluirToolStripMenuItem;
         private Label lblBoasVindas;
         private ToolStripMenuItem agendaToolStripMenuItem;
+        private GroupBox groupBox1;
+        private Label lblUser;
+        private Label lblNome;
+        private Label lblUsuario;
+        private Label lblNomeDoUsuario;
     }
 }

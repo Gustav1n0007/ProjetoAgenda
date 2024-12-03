@@ -44,6 +44,9 @@ namespace ProjetoAgenda.Views
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             lblBoasVindas.Text = $"Boas vindas {UserSession.nome}";
+            lblNome.Text = UserSession.nome;
+            lblUser.Text = UserSession.usuario;
+
         }
 
         private void agendaToolStripMenuItem_Click(object sender, EventArgs e)
